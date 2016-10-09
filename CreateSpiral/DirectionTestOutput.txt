@@ -1,0 +1,64 @@
+when currentDirection = 0
+getNextDirection() results in currentDirection == 1
+Result: True
+when currentDirection = 1
+getNextDirection() results in currentDirection == 2
+Result: True
+when currentDirection = 1
+getNextDirection() results in currentDirection == 2
+Result: True
+when currentDirection = 2
+getNextDirection() results in currentDirection == 3
+Result: True
+
+
+when array = [[0, 0, 0], []] and value = 1
+fillArray() for RightDirection results in [[1, 2, 3], []]
+Result: True
+when array = [[], ['x', 0, 0, 'x']] and value = 1
+fillArray() for RightDirection results in [[], ['x', 1, 2, 'x']]
+Result: True
+when array = [[0, 0, 0], []] and value = 1
+fillArray() for LeftDirection results in [[3, 2, 1], []]
+Result: True
+when array = [[], ['x', 0, 0, 'x']] and value = 5
+fillArray() for LeftDirection results in [[], ['x', 6, 5, 'x']]
+Result: True
+when array = [[0, 0], [0, 0]] and value = 1
+fillArray() for UpDirection results in [[0, 2], [0, 1]]
+Result: True
+when array = [[0, 'x', 0], [0, 0, 0], [0, 0, 0]] and value = 10
+fillArray() for UpDirection results in [[0, 'x', 0], [0, 11, 0], [0, 10, 0]]
+Result: True
+when array = [[0, 0], [0, 0]] and value = 1
+fillArray() for DownDirection results in [[1, 0], [2, 0]]
+Result: True
+when array = [[0, 0, 0], [0, 0, 0], [0, 'x', 0]] and value = 7
+fillArray() for DownDirection results in [[0, 7, 0], [0, 8, 0], [0, 'x', 0]]
+Result: True
+
+
+when current coordinates = [0, 0]
+getStartCoordinates() for RightDirection results in [0, 1]
+Result: True
+when current coordinates = [3, 4]
+getStartCoordinates() for RightDirection results in [3, 5]
+Result: True
+when current coordinates = [0, 0]
+getStartCoordinates() for DownDirection results in [1, 0]
+Result: True
+when current coordinates = [1, 4]
+getStartCoordinates() for DownDirection results in [2, 4]
+Result: True
+when current coordinates = [0, 0]
+getStartCoordinates() for LeftDirection results in [0, -1]
+Result: True
+when current coordinates = [3, 4]
+getStartCoordinates() for LeftDirection results in [3, 3]
+Result: True
+when current coordinates = [0, 0]
+getStartCoordinates() for UpDirection results in [-1, 0]
+Result: True
+when current coordinates = [5, 3]
+getStartCoordinates() for UpDirection results in [4, 3]
+Result: True
