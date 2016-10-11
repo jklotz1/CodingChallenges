@@ -1,40 +1,50 @@
-when currentDirection = 0
+when currentDirection = 0 for Direction()
 getNextDirection() results in currentDirection == 1
 Result: True
-when currentDirection = 1
+when currentDirection = 1 for Direction()
 getNextDirection() results in currentDirection == 2
 Result: True
-when currentDirection = 1
+when currentDirection = 1 for RightDirection()
 getNextDirection() results in currentDirection == 2
 Result: True
-when currentDirection = 2
+when currentDirection = 2 for RightDirection()
 getNextDirection() results in currentDirection == 3
 Result: True
 
 
-when array = [[0, 0, 0], []] and value = 1
-fillArray() for RightDirection results in [[1, 2, 3], []]
+getDisplacement() for RightDirection results in [0, 1]
 Result: True
-when array = [[], ['x', 0, 0, 'x']] and value = 1
-fillArray() for RightDirection results in [[], ['x', 1, 2, 'x']]
+getDisplacement() for DownDirection results in [1, 0]
 Result: True
-when array = [[0, 0, 0], []] and value = 1
-fillArray() for LeftDirection results in [[3, 2, 1], []]
+getDisplacement() for LeftDirection results in [0, -1]
 Result: True
-when array = [[], ['x', 0, 0, 'x']] and value = 5
-fillArray() for LeftDirection results in [[], ['x', 6, 5, 'x']]
+getDisplacement() for UpDirection results in [-1, 0]
 Result: True
-when array = [[0, 0], [0, 0]] and value = 1
-fillArray() for UpDirection results in [[0, 2], [0, 1]]
+
+
+when current coordinates = [0, 0] and n = 3
+checkLocation() for RightDirection results in True
 Result: True
-when array = [[0, 'x', 0], [0, 0, 0], [0, 0, 0]] and value = 10
-fillArray() for UpDirection results in [[0, 'x', 0], [0, 11, 0], [0, 10, 0]]
+when current coordinates = [0, 3] and n = 3
+checkLocation() for RightDirection results in False
 Result: True
-when array = [[0, 0], [0, 0]] and value = 1
-fillArray() for DownDirection results in [[1, 0], [2, 0]]
+when current coordinates = [2, 1] and n = 4
+checkLocation() for DownDirection results in True
 Result: True
-when array = [[0, 0, 0], [0, 0, 0], [0, 'x', 0]] and value = 7
-fillArray() for DownDirection results in [[0, 7, 0], [0, 8, 0], [0, 'x', 0]]
+when current coordinates = [5, 1] and n = 4
+checkLocation() for DownDirection results in False
+Result: True
+when current coordinates = [0, 1] and n = 2
+checkLocation() for LeftDirection results in True
+Result: True
+when current coordinates = [0, -1] and n = 2
+checkLocation() for LeftDirection results in False
+Result: True
+when current coordinates = [0, 0] and n = 3
+checkLocation() for UpDirection results in True
+Result: True
+when current coordinates = [-2, 0] and n = 3
+checkLocation() for UpDirection results in False
 Result: True
 
 

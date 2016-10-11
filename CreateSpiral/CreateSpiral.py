@@ -1,5 +1,5 @@
 import sys
-from Spiral import Spiral
+from Spiral import *
 from Direction import *
 
 #creates the sprial matrix of size N
@@ -13,34 +13,14 @@ def createSpiral(N):
         print("N = " + str(N) + "   Output: " + str([]))
         return []
     
-    #sets base empty array
-    array = [[0 for i in range(N)] for j in range(N)]
-    #gets instances of sprial and direction objects
-    spiral = Spiral(array, N)
-    currentDirection = RightDirection()
-    
-    #fill in spiral until all values are filled
-    #uses the function defintion depending on distance object
-    #continues in spiral directions (right, down, left, up,...) until done
-    #loop breaks when all values are filled in or boundaries are hit
-    while (spiral.checkBoundaries() and array[spiral.x][spiral.y] == 0):
-        spiral = currentDirection.fillArray(spiral)
-        currentDirection.getNextDirection()
-        currentDirection = getNextDirectionInstance(currentDirection.currentDirection)
-        currentDirection.getStartCoordinates(spiral)
-    print("N = " + str(N) + "   Output: " + str(array))
-    printPretty(array)
-    return array
+    #get instances of the spiral 
+    spiral = Spiral(N) 
+    #fill the array with numbers
+    spiral.fillArray()
 
-#gets the next direction object
-#the next direction to move in the spiral
-def getNextDirectionInstance(n):
-    return {
-        1 : RightDirection(),
-        2 : DownDirection(),
-        3 : LeftDirection(),
-        0 : UpDirection()
-    }[n] 
+    print("N = " + str(N) + "   Output: " + str(spiral.array))
+    printPretty(spiral.array)
+    return spiral.array
 
 #prints the matrix pretty
 #taken from stackoverflow 10-7-2016

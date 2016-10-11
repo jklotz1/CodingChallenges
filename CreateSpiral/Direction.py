@@ -15,22 +15,13 @@ class Direction:
 class RightDirection(Direction):
     currentDirection = 1
     
-    #Fill in spiral moving in the right direction
-    #takes in spiral object for filling in
-    def fillArray(self, spiral):
-        #sets starting coordinates and values in spiral
-        x = spiral.x
-        y = spiral.y
-        value = spiral.value
-        
-        #fill in array until edge or a space that is already filled
-        while (y < spiral.n and spiral.array[x][y] == 0):
-            spiral.array[x][y] = value
-            y += 1
-            value += 1
-        spiral.y = y - 1
-        spiral.value = value
-        return spiral
+    #Returns the vector of change for moving in the right direction
+    def getDisplacement(self):
+        return [0,1]
+    
+    #checks to see if the coordinates are out of bounds
+    def checkLocation(self, spiral):
+        return (spiral.y < spiral.n)
     
     #shifts starting coordinates to new starting spot
     def getStartCoordinates(self, spiral):
@@ -41,24 +32,14 @@ class RightDirection(Direction):
 #contains actions specific to moving down to fill in spiral    
 class DownDirection(Direction):
     currentDirection = 2
+
+    #Returns the vector of change for moving in the down direction
+    def getDisplacement(self):
+        return [1,0]   
     
-    #Fill in spiral moving in the down direction
-    #takes in spiral object for filling in    
-    def fillArray(self, spiral):
-        #sets starting coordinates and values in spiral
-        x = spiral.x
-        y = spiral.y
-        value = spiral.value
-        
-        #fill in array until edge or a space that is already filled
-        while (x < spiral.n and spiral.array[x][y] == 0):
-            spiral.array[x][y] = value
-            x += 1
-            value += 1
-            
-        spiral.x = x - 1
-        spiral.value = value
-        return spiral
+    #checks to see if the coordinates are out of bounds
+    def checkLocation(self, spiral):
+        return (spiral.x < spiral.n)    
     
     #shifts starting coordinates to new starting spot
     def getStartCoordinates(self, spiral):
@@ -70,23 +51,13 @@ class DownDirection(Direction):
 class LeftDirection(Direction):
     currentDirection = 3
     
-    #Fill in spiral moving in the left direction
-    #takes in spiral object for filling in    
-    def fillArray(self, spiral):
-        #sets starting coordinates and values in spiral
-        x = spiral.x
-        y = spiral.y
-        value = spiral.value
-        
-        #fill in array until edge or a space that is already filled
-        while (y >= 0 and spiral.array[x][y] == 0):
-            spiral.array[x][y] = value
-            y -= 1
-            value += 1
-            
-        spiral.y = y + 1
-        spiral.value = value
-        return spiral
+    #Returns the vector of change for moving in the left direction
+    def getDisplacement(self):
+        return [0,-1]  
+    
+    #checks to see if the coordinates are out of bounds
+    def checkLocation(self, spiral):
+        return (spiral.y >= 0)     
     
     #shifts starting coordinates to new starting spot
     def getStartCoordinates(self, spiral):
@@ -98,23 +69,13 @@ class LeftDirection(Direction):
 class UpDirection(Direction):
     currentDirection = 0
     
-    #Fill in spiral moving in the up direction
-    #takes in spiral object for filling in    
-    def fillArray(self, spiral):
-        #sets starting coordinates and values in spiral
-        x = spiral.x
-        y = spiral.y
-        value = spiral.value
-        
-        #fill in array until edge or a space that is already filled
-        while (x >= 0 and spiral.array[x][y] == 0):
-            spiral.array[x][y] = value
-            x -= 1
-            value += 1
-            
-        spiral.x = x + 1
-        spiral.value = value
-        return spiral
+    #Returns the vector of change for moving in the down direction
+    def getDisplacement(self):
+        return [-1,0]  
+    
+    #checks to see if the coordinates are out of bounds
+    def checkLocation(self, spiral):
+        return (spiral.x >= 0)     
     
     #shifts starting coordinates to new starting spot
     def getStartCoordinates(self, spiral):
